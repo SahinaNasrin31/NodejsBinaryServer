@@ -145,19 +145,6 @@ bs.on('connection', function(client){
         })
         })
         }
-          /*else if(meta.name=="profile")
-          {
-            console.log("profile");
-            console.log("sending..");
-          unirest.post('https://westus.api.cognitive.microsoft.com/spid/v1.0/verificationProfiles"')
-            .headers({'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key' : '530fc76e57ff41ee8af9314c8a716166'})
-          //  .attach('file', 'myvoiceverify.wav') // Attachment
-            .end(function (response) {
-              console.log(response.body);
-              resp=response.body;
-              stream.write(resp);
-          })
-        }*/
       });
 
 
