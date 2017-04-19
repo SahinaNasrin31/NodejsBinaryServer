@@ -14,7 +14,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/:id', function(req, res) {
   res.send(req.params.id);
   unirest.post('https://westus.api.cognitive.microsoft.com/spid/v1.0/verificationProfiles')
-    .headers({'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key' : '530fc76e57ff41ee8af9314c8a716166'})
+    .headers({'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key' : ''})
     .send("{\"locale\":\"en-us\",}")
     .end(function (response) {
       console.log(response.body);
@@ -105,7 +105,7 @@ bs.on('connection', function(client){
           console.log("verify");
           console.log("sending..");
         unirest.post('https://westus.api.cognitive.microsoft.com/spid/v1.0/verify?verificationProfileId='+profileid)
-          .headers({'Content-Type': 'multipart/form-data', 'Ocp-Apim-Subscription-Key' : '530fc76e57ff41ee8af9314c8a716166'})
+          .headers({'Content-Type': 'multipart/form-data', 'Ocp-Apim-Subscription-Key' : ''})
           .attach('file', 'myvoiceverify.wav') // Attachment
           .end(function (response) {
             console.log(response.body);
@@ -136,7 +136,7 @@ bs.on('connection', function(client){
           //console.log(arrayOfObjects.users[0].profileid);
 
         unirest.post('https://westus.api.cognitive.microsoft.com/spid/v1.0/verificationProfiles/'+pid+'/enroll')
-          .headers({'Content-Type': 'multipart/form-data', 'Ocp-Apim-Subscription-Key' : '530fc76e57ff41ee8af9314c8a716166'})
+          .headers({'Content-Type': 'multipart/form-data', 'Ocp-Apim-Subscription-Key' : ''})
           .attach('file', 'myvoiceverify.wav') // Attachment
           .end(function (response) {
             console.log(response.body);
