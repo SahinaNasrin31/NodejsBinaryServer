@@ -20,6 +20,9 @@
   "bugs": {
     "url": "https://github.com/SahinaNasrin31/NodejsBinaryServer/issues"
   },
+  "engines": {
+    "node": "7.1.0"
+  },
   "homepage": "https://github.com/SahinaNasrin31/NodejsBinaryServer#readme",
   "dependencies": {
     "binaryjs": "^0.2.1",
