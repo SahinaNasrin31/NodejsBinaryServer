@@ -85,10 +85,8 @@ bs.on('connection', function(client){
 
         if(meta.name=="verify")
         {
-          username=meta.user;
+          username=meta.username;
           var pid;
-          console.log("enroll");
-          console.log("sending..");
           fs.readFile('./verificationprofileid.json', 'utf-8', function(err, data) {
           if (err) throw err
 
@@ -104,7 +102,7 @@ bs.on('connection', function(client){
           console.log(pid);
           console.log("verify");
           console.log("sending..");
-        unirest.post('https://westus.api.cognitive.microsoft.com/spid/v1.0/verify?verificationProfileId='+profileid)
+        unirest.post('https://westus.api.cognitive.microsoft.com/spid/v1.0/verify?verificationProfileId='+pid)
           .headers({'Content-Type': 'multipart/form-data', 'Ocp-Apim-Subscription-Key' : '530fc76e57ff41ee8af9314c8a716166'})
           .attach('file', 'myvoiceverify.wav') // Attachment
           .end(function (response) {
@@ -116,7 +114,7 @@ bs.on('connection', function(client){
         }
         else if(meta.name=="enroll")
         {
-          username=meta.profileid;
+          username=meta.username;
           var pid;
           console.log("enroll");
           console.log("sending..");
@@ -145,19 +143,7 @@ bs.on('connection', function(client){
         })
         })
         }
-          /*else if(meta.name=="profile")
-          {
-            console.log("profile");
-            console.log("sending..");
-          unirest.post('https://westus.api.cognitive.microsoft.com/spid/v1.0/verificationProfiles"')
-            .headers({'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key' : '530fc76e57ff41ee8af9314c8a716166'})
-          //  .attach('file', 'myvoiceverify.wav') // Attachment
-            .end(function (response) {
-              console.log(response.body);
-              resp=response.body;
-              stream.write(resp);
-          })
-        }*/
+
       });
 
 
