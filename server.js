@@ -10,6 +10,8 @@ var profileid;
 // Serve client side statically
 var express = require('express');
 var app = express();
+app.set('port', (process.env.PORT || 9000));
+
 app.use(express.static(__dirname + '/public'));
 app.get('/:id', function(req, res) {
   res.send(req.params.id);
@@ -38,6 +40,7 @@ app.get('/:id', function(req, res) {
   })
 
 
+  
 });
 
 
@@ -157,5 +160,5 @@ bs.on('connection', function(client){
 //
 //
 
-server.listen(9000);
+server.listen(app.get('port'));
 console.log('HTTP and BinaryJS server started on port 9000');
